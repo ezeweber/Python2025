@@ -1,0 +1,4 @@
+temperatura = int (input()) 
+farenheit = temperatura * 9 / 5 + 32
+print ("La temperatura en celcius", temperatura, "en farenheit es igual a", farenheit)
+
