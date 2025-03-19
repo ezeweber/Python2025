@@ -23,15 +23,16 @@ answers = [
 ]
 # Índice de la respuesta correcta para cada pregunta, el el mismo orden que las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
+# 3er Inciso
+preguntas = random.choices(list(zip(questions, answers, correct_answers_index)), k=3)
 # 2do Inciso puntaje
 puntaje = 0
 # El usuario deberá contestar 3 preguntas
-for x in range(3):
-# Se selecciona una pregunta aleatoria
-    question_index = random.randint(0, len(questions) - 1)
-# Se muestra la pregunta y las respuestas posibles
-    print(questions[question_index])
-    for i, answer in enumerate(answers[question_index]):
+for pregunta, opciones, respuesta_correcta in preguntas:
+# Imprime una pregunta aleatoria la cantidad de veces de mi variable cant 
+    print(pregunta)
+# Se muestra las respuestas posibles
+    for i, answer in enumerate(opciones):
         print(f"{i + 1}. {answer}")
 # El usuario tiene 2 intentos para responder correctamente
     for intento in range(2):
@@ -44,7 +45,7 @@ for x in range(3):
                 case 1|2|3|4:
 # Se verifica si la respuesta es correcta
                     user_answer = user_answer - 1
-                    if user_answer == correct_answers_index[question_index]:
+                    if user_answer == respuesta_correcta:
                         puntaje += 1
                         print("\n¡Correcto!")
                         break
@@ -53,7 +54,7 @@ for x in range(3):
                         print("\nIncorrecto. Intente nuevamente\n")
                         puntaje -= 0.5
                         if (intento==1):
-                            print(f"\nLa respuesta correcta era: {answers[question_index][correct_answers_index[question_index]]}")
+                            print(f"\nLa respuesta correcta era: {opciones[respuesta_correcta]}")
                 case _:
                     print("Respuesta no válida")
                     sys.exit(1)        
