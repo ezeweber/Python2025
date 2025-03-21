@@ -49,12 +49,12 @@ for pregunta, opciones, respuesta_correcta in preguntas:
                         print("\n¡Correcto!")
                         break
                     else:
-# Sino tiene otro intento
-                        print("\nIncorrecto. Intente nuevamente\n")
-                        puntaje -= 0.5
 # Si el usuario no responde correctamente después de 2 intentos, se muestra la respuesta correcta
                         if (intento==1):
-                            print(f"\nLa respuesta correcta era: {opciones[respuesta_correcta]}")
+                            print(f"\nIncorrecto. La respuesta correcta era: {opciones[respuesta_correcta]}")
+                        else:
+                            print("\nIncorrecto. Intente nuevamente\n")
+                        puntaje -= 0.5
 # Tiene 2 salidas, (else) si no responde un numero (case _) respondio un numero que no sea del 1 al 4
                 case _:
                     print("Respuesta no válida")
